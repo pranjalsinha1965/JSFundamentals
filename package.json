@@ -1,0 +1,16 @@
+{
+  "name": "jsfundamentals",
+  "version": "1.0.0",
+  "description": "*** Since React is based on JavaScript, it’s essential to have a good grasp of the language before you start learning React. ***",
+  "main": "ArrowFunctions.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
