@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript API Renderer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+      background: #f0f0f0;
+    }
+    h2 {
+      color: #333;
+    }
+    button {
+      margin: 10px;
+      padding: 10px 15px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .output {
+      margin-top: 20px;
+      padding: 10px;
+      background: white;
+      border-radius: 6px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>JavaScript API Renderer</h2>
+
+  <button onclick="fetchData('greeting')">Get Greeting</button>
+  <button onclick="fetchData('list')">Get List</button>
+  <button onclick="fetchData('person')">Get Person Info</button>
+  <button onclick="fetchData('config')">Get Config Theme</button>
+  <button onclick="fetchData('address')">Get Address</button>
+  <button onclick="fetchData('person/rename')">Get Renamed Person</button>
+  <button onclick="fetchData('numbers')">Get Numbers</button>
+
+  <div class="output" id="output">Click a button to see the API response here.</div>
+
+  <script>
+    async function fetchData(endpoint) {
+      try {
+        const response = await fetch(`http://localhost:3000/${endpoint}`);
+        const data = await response.json();
+        document.getElementById('output').textContent = JSON.stringify(data, null, 2);
+      } catch (err) {
+        document.getElementById('output').textContent = 'Error fetching data: ' + err;
+      }
+    }
+  </script>
+
+</body>
+</html>

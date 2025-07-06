@@ -1,7 +1,8 @@
 const express = require('express');
 const app = express();
 const port = 3000;
-
+const cors = require('cors');
+app.use(cors());
 // Static greeting endpoint
 app.get('/greeting', (req, res) => {
     const name = 'Alice';
