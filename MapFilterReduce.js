@@ -1,6 +1,6 @@
 const numbers = [1, 2, 3, 4];
 const doubled = numbers.map(num => num * 2);
-console.log(doubled);
+console.log("Doubled numbers: ", doubled);
 
 const users = [
     { id: 1, name: 'Alice' }, 
@@ -17,6 +17,20 @@ function UserList() {
         </ul>
     );
 }
+
+// Just a function that logs users
+function UserListLogger() {
+    console.log("User List:");
+    users.forEach(user => {
+        console.log(`ID: ${user.id}, Name: ${user.name}`);
+    });
+}
+
+// Call the function to print
+UserListLogger();
+
+/* To log these elements to console please use a logger function and create it on your own.*/
+
 
 /* Note that each <li> element in the list has a unique 'key' prop.
 It is required by React when rendering lists like this */

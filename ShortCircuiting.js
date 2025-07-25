@@ -1,8 +1,6 @@
 let isLoggedIn = true;
 console.log(isLoggedIn && 'Welcome back!');
 
-// Welcome Back 
-
 function UserGreeting({ isLoggedIn})
 {
     return (
@@ -14,7 +12,6 @@ function UserGreeting({ isLoggedIn})
 
 let username = '';
 console.log(username || Guest);
-// Output: Guest
 
 function UserProfile({ username})
 {
