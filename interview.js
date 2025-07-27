@@ -56,3 +56,17 @@ console.log(familyName, givenName); // Output: Akande Olalekan
 const numbers = [1, 2, 3, 4, 5];
 const [first, second, ...rest] = numbers;
 console.log(first, second, rest); // Output: 1 2 [3, 4, 5]
+
+
+const arr1 = [1, 2, 3, 4, 5];
+const arr2 = [...arr1, 6, 7];
+console.log(arr2);
+
+const obj1 = {name: 'Alice', age: 25};
+const obj2 = {...obj1, job: 'Engineer'};
+console.log(obj2);
+
+function sum(...args)
+{
+    return args.reduce((total, num) => total + num, 0);
+}
