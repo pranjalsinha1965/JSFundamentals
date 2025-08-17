@@ -1,30 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Add Details</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <meta charset="UTF-8">
+  <title>Transformer Energy Audit – Data Entry</title>
 </head>
 <body>
+  <h2>Transformer Energy Audit – Data Entry Form</h2>
+  <form id="auditForm">
 
-    <form action="">
-       <h1>Add Student Data</h1>
-        <div>
-            <label for="roll">Roll No.</label>
-            <input type="number" id="roll" name="roll">
-        </div>
-        <div>
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name">
-        </div>
-        <div>
-            <label for="marks">Marks</label>
-            <input type="number" id="marks" name="marks">
-        </div>
-        <button type="submit">Add Details</button>
-    </form>
-    
-    <div id="items">
-    </div>
-    
+    <label>
+      Transformer ID:
+      <input type="text" name="transformer_id" required>
+    </label>
+    <br>
+
+    <label>
+      Location:
+      <input type="text" name="location" required>
+    </label>
+    <br>
+
+    <label>
+      Capacity (kVA):
+      <input type="number" name="capacity" required>
+    </label>
+    <br>
+
+    <label>
+      Load (kW):
+      <input type="number" name="load" required>
+    </label>
+    <br>
+
+    <label>
+      Efficiency (%):
+      <input type="number" step="0.01" name="efficiency" required>
+    </label>
+    <br><br>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <h3>Submission Preview</h3>
+  <div id="preview"></div>
+
+  <script>
+    document.getElementById("auditForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const formData = new FormData(this);
+      let output = "<ul>";
+      for (const [key, value] of formData.entries()) {
+        output += "<li><b>" + key + ":</b> " + value + "</li>";
+      }
+      output += "</ul>";
+
+      document.getElementById("preview").innerHTML = output;
+
+      // clear form
+      this.reset();
+    });
+  </script>
 </body>
 </html>
